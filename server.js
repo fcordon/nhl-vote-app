@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 // API
 mongoose.Promise = global.Promise
 
-const url = 'mongodb+srv://Razza:CaptainElan2696@cluster0-zxexs.mongodb.net/nhl?retryWrites=true&w=majority'
+const url = 'mongodb+srv://Razza:CaptainElan2696@cluster0.c4fum.mongodb.net/nhl?retryWrites=true&w=majority'
 
 async function main() {
   const client = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
