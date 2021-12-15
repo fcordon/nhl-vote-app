@@ -1,0 +1,29 @@
+.page {
+  &-stats {
+    &-conference {
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      img {
+        width: 150px;
+      }
+    }
+
+    &-table {
+      margin-top: 50px;
+
+      &-division {
+        background-color: #000000;
+        color: #ffffff !important;
+      }
+
+      &-img {
+        width: 50px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Button from '@material-ui/core/Button';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
 
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+
+import './index.scss';
 
 const Vote = () => {
   const [teams, setTeams] = useState([])
@@ -46,14 +48,14 @@ const Vote = () => {
   }, [])
 
   return (
-    <div>
-      <section>
-        Nombre d'équipe sélectionnée : {teamsCount}
-      </section>
-      <section className='Home-vote'>
+    <section className='content page-vote'>
+      <div className='page-vote-count'>
+        Nombre {teamsCount <= 1 ? 'd\'équipe sélectionnée' : 'd\'équipes sélectionnées'} : {teamsCount}
+      </div>
+      <div className='page-vote-teams'>
         {teams.map((team, index) => (
-          <div key={team.name}>
-            <img src={'https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/' + team.id + '.svg'} alt={team.name} />
+          <div className='page-vote-teams-team' key={team.name}>
+            <img src={'https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/' + team.id + '.svg'} alt={team.name} onClick={() => handleVote(index)} />
             <FormControlLabel
               control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />}
               value={team.name}
@@ -64,11 +66,11 @@ const Vote = () => {
             />
           </div>
         ))}
-      </section>
-      <section>
+      </div>
+      <div>
         <Button variant="contained" disabled={teamsCount < 16} color="primary">Valider</Button>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
 

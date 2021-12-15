@@ -1,13 +1,19 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import Home from "./pages/Home"
+import NavBar from './components/NavBar/NavBar'
+import Home from './pages/Home'
+import Stats from './pages/Stats'
 
 const Main = () => (
   <main>
-    <Switch>
-      <Route exact path='/' component={Home}/>
-    </Switch>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route exact path='/' element={<Home/>}/>
+        <Route exact path='/nhl-stats' element={<Stats/>}/>
+      </Routes>
+    </Router>
   </main>
 )
 
