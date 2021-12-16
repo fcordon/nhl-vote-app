@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 
 // Models
 
+
 // Server
 app.listen(port, () => console.log(`Listening on port ${port}`))
 
@@ -39,12 +40,12 @@ async function main() {
 
 main().catch(console.dir)
 
-// START API
+//--------------->>>> START API <<<<--------------
 
 
 
 //--------------->>>> END API <<<<--------------
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'src/build', 'index.html'))
 })
